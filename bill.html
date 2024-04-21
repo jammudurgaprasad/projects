@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Billing</title>
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        h1,h4,h3{
+            text-align: center;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="rajesh"></div>
+        <form id="billingForm" onsubmit="event.preventDefault();">
+            <p><b>Note : </b>You can generete bill for maximum of 10 Items at a time.</p>
+            <label for="numitems">Enter Number of Items : </label>
+            <input type="number" id="numitems" min="1" max="10">
+            <button onclick="generateBill()">Generate Bill</button>
+        </form>
+        <div id="billTable"></div>
+        <div id="wish"></div>
+        <script>
+            function generateBill(){
+                var nitems=document.getElementById('numitems').value;
+                var tabcontent="<h1>Bill Details</h1><table><tr><th>Item Name</th><th>Prise</th></tr>";
+                var total=0;
+                for(var i=1;i<=nitems;i++){
+                    var itemname=prompt("Enter "+i+" item : ");
+                    var itemprice=parseFloat(prompt("Enter item "+i+" price :"));
+                    total=total+itemprice;
+                    tabcontent=tabcontent+"<tr><td>"+itemname+"</td><td>"+itemprice+"/-</td></tr>";
+                }
+                tabcontent=tabcontent+"<tr><th>Total</th><th>"+total+"/-</th></tr>";
+                document.getElementById('rajesh').innerHTML="<h1>*Murali Departmental Stores*</h1><h4>opp.Natraj Theater,Cheepurupalli<br>Vizianagaram 535-128</h4><h3>Invoice</h3>";
+                document.getElementById('billTable').innerHTML=tabcontent;
+                document.getElementById('wish').innerHTML="<h2>*Thankyou*</h2><h3>Visit Again</h3>";
+                document.getElementById('billingForm').style.display = 'none';
+        }
+        </script>
+    </body>
+</html>
