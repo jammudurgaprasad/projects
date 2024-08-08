@@ -50,7 +50,7 @@
         </style>
     </head>
     <body>
-        <p><b>Note : </b>User name is in the form "Y22CM1-65"<br>Ex:Y22CM62<br>password: cm </p>
+        <p><b>Note : </b>User name is in the form "Y22CM{1-200}"<br>Ex:Y22CM61<br>password: cm </p>
         <div class="container">
             <h1>LOGIN</h1>
             <form onsubmit="event.preventDefault();">
@@ -68,7 +68,7 @@
                 const ini="Y22CM";
                 const student=[];
                 var i=1;
-                for(i=1;i<=65;i++){
+                for(i=1;i<=200;i++){
                     reg=ini+i;
                     student.push(reg);
                 }
